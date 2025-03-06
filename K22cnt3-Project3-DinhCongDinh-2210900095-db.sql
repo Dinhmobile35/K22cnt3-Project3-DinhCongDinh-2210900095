@@ -7,7 +7,7 @@ CREATE TABLE DCD_CongDan (
     DCD_CCCD VARCHAR(12) PRIMARY KEY,
     DCD_HoTen VARCHAR(100) NOT NULL,
     DCD_NgaySinh DATE NOT NULL,
-    DCD_GioiTinh ENUM('NAM', 'NỮ', 'KHÁC') NOT NULL,
+    DCD_GioiTinh ENUM('NAM', 'NỮ') NOT NULL,
     DCD_SoDienThoai VARCHAR(15) UNIQUE,
     DCD_Email VARCHAR(100) UNIQUE,
     DCD_DiaChi TEXT NOT NULL,
@@ -94,7 +94,3 @@ VALUES
 ('0987654321', 'newpass123', 'CHO_DUYET');
 SELECT * FROM DCD_CongDan;
 
-INSERT INTO DCD_CongDan (DCD_CCCD, DCD_HoTen, DCD_NgaySinh, DCD_GioiTinh, DCD_SoDienThoai, DCD_Email, DCD_DiaChi, DCD_NgayCap, DCD_NgayHetHan)
-VALUES 
-('001122334455', 'Nguyễn Văn A', '1990-05-15', 'NAM', '0987654321', 'nguyenvana@example.com', 'Hà Nội', '2020-01-10', '2030-01-10'),
-('002233445566', 'Trần Thị B', '1995-08-22', 'NU', '0978123456', 'tranthib@example.com', 'TP. Hồ Chí Minh', '2021-05-20', '2031-05-20');

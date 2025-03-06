@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Danh sách công dân</title>
+    <style>
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid black; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+<h1>Danh sách công dân</h1>
+<div class="error" th:if="${error}" th:text="${error}"></div>
+<a th:href="@{/congdan/new}">Thêm công dân mới</a>
+<table>
+    <thead>
+    <tr>
+        <th>CCCD</th>
+        <th>Họ tên</th>
+        <th>Ngày sinh</th>
+        <th>Giới tính</th>
+        <th>Số điện thoại</th>
+        <th>Email</th>
+        <th>Địa chỉ</th>
+        <th>Ngày cấp</th>
+        <th>Ngày hết hạn</th>
+        <th>Thao tác</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="congDan : ${congDanList}">
+        <td th:text="${congDan.cccd}"></td>
+        <td th:text="${congDan.hoTen}"></td>
+        <td th:text="${#dates.format(congDan.ngaySinh, 'yyyy-MM-dd')}"></td>
+        <td th:text="${congDan.gioiTinh}"></td>
+        <td th:text="${congDan.soDienThoai}"></td>
+        <td th:text="${congDan.email}"></td>
+        <td th:text="${congDan.diaChi}"></td>
+        <td th:text="${#dates.format(congDan.ngayCap, 'yyyy-MM-dd')}"></td>
+        <td th:text="${#dates.format(congDan.ngayHetHan, 'yyyy-MM-dd')}"></td>
+        <td>
+            <a th:href="@{/congdan/edit/{cccd}(cccd=${congDan.cccd})}">Sửa</a>
+            <a th:href="@{/congdan/delete/{cccd}(cccd=${congDan.cccd})}" onclick="return confirm('Bạn có chắc muốn xóa?')">Xóa</a>
+        </td>
+    </tr>
+    <tr th:if="${congDanList == null or congDanList.isEmpty()}">
+        <td colspan="10">Không có dữ liệu công dân.</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách công dân</title>
+</head>
+<body>
+<h2>Danh sách công dân</h2>
+<table border="1">
+    <thead>
+    <tr>
+        <th>CCCD</th>
+        <th>Họ tên</th>
+        <th>Ngày sinh</th>
+        <th>Giới tính</th>
+        <th>Số điện thoại</th>
+        <th>Email</th>
+        <th>Địa chỉ</th>
+        <th>Ngày cấp</th>
+        <th>Ngày hết hạn</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="cd : ${congDanList}">
+        <td th:text="${cd.cccd}"></td>
+        <td th:text="${cd.hoTen}"></td>
+        <td th:text="${cd.ngaySinh}"></td>
+        <td th:text="${cd.gioiTinh}"></td>
+        <td th:text="${cd.soDienThoai}"></td>
+        <td th:text="${cd.email}"></td>
+        <td th:text="${cd.diaChi}"></td>
+        <td th:text="${cd.ngayCap}"></td>
+        <td th:text="${cd.ngayHetHan}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

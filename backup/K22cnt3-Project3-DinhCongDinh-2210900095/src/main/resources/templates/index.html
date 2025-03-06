@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}">Trang chủ</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<h1>Chào mừng đến với hệ thống quản lý căn cước công dân</h1>
+<p>Trang này đang được phát triển...</p>
+
+<ul>
+    <li><a th:href="@{/congdan-list}">Danh sách công dân</a></li>
+    <li><a th:href="@{/dang-nhap}">Đăng nhập</a></li>
+    <li><a th:href="@{/dang-ky}">Đăng ký</a></li>
+</ul>
+</body>
+</html>

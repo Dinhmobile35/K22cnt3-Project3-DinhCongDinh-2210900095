@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Danh sách Công Dân</title>
+</head>
+<body>
+<h1>Danh sách Công Dân</h1>
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Họ Tên</th>
+        <th>Ngày Sinh</th>
+        <th>Giới Tính</th>
+        <th>Dân Tộc</th>
+        <th>Tôn Giáo</th>
+        <th>Quê Quán</th>
+        <th>Địa Chỉ Thường Trú</th>
+        <th>Số Điện Thoại</th>
+        <th>Email</th>
+        <th>Ngày Cấp</th>
+        <th>Nơi Cấp</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="congDan : ${danhSachCongDan}">
+        <td th:text="${congDan.congDanID}"></td>
+        <td th:text="${congDan.hoTen}"></td>
+        <td th:text="${#dates.format(congDan.ngaySinh, 'dd/MM/yyyy')}"></td>
+        <td th:text="${congDan.gioiTinh}"></td>
+        <td th:text="${congDan.danToc}"></td>
+        <td th:text="${congDan.tonGiao}"></td>
+        <td th:text="${congDan.queQuan}"></td>
+        <td th:text="${congDan.diaChiThuongTru}"></td>
+        <td th:text="${congDan.soDienThoai}"></td>
+        <td th:text="${congDan.email}"></td>
+        <td th:text="${#dates.format(congDan.ngayCap, 'dd/MM/yyyy')}"></td>
+        <td th:text="${congDan.noiCap}"></td>
+
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

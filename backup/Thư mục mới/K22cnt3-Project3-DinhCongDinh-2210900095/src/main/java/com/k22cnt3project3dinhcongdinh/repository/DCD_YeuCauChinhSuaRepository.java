@@ -1,7 +1,0 @@
-package com.k22cnt3project3dinhcongdinh.repository;
-
-import com.k22cnt3project3dinhcongdinh.model.DCD_YeuCauChinhSua;
-import org.springframework.data.jpa.repository.JpaRepository;
-
-public interface DCD_YeuCauChinhSuaRepository extends JpaRepository<DCD_YeuCauChinhSua, Integer> {
-}

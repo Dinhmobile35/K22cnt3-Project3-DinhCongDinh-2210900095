@@ -98,11 +98,13 @@ public class AdminCongDanController extends HttpServlet {
         String hoTen = request.getParameter("hoTen");
         Date ngaySinh = Date.valueOf(request.getParameter("ngaySinh"));
         String gioiTinh = request.getParameter("gioiTinh");
+        String soDienThoai = request.getParameter("soDienThoai");
+        String email = request.getParameter("email");
         String diaChi = request.getParameter("diaChi");
         Date ngayCap = Date.valueOf(request.getParameter("ngayCap"));
         Date ngayHetHan = Date.valueOf(request.getParameter("ngayHetHan"));
 
-        CongDan congDan = new CongDan(cccd, hoTen, ngaySinh, gioiTinh, null, null, diaChi, ngayCap, ngayHetHan, null);
+        CongDan congDan = new CongDan(cccd, hoTen, ngaySinh, gioiTinh, soDienThoai, email, diaChi, ngayCap, ngayHetHan, null);
         congDanDAO.insertCongDan(congDan);
         response.sendRedirect("congdan");
     }

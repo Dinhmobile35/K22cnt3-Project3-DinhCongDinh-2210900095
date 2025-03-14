@@ -1,0 +1,6 @@
+tài khoản 
+user 
+tài khoản: 0978123456 pass:654321
+admin 
+tài khoản :0987654321 pass:123456
+cả hai user và admin đều đăng nhập ở trang login

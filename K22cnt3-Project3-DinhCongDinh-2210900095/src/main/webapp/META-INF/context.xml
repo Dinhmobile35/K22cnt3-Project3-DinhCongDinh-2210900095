@@ -4,7 +4,9 @@
            driverName="com.mysql.cj.jdbc.Driver"
            connectionURL="jdbc:mysql://localhost:3306/K22cnt3_DinhCongDinh_2210900095_Project3_db?useSSL=false"
            connectionName="root"
-           connectionPassword="123456" <!-- Thay bằng mật khẩu MySQL của bạn -->
+           connectionPassword="123456">
+
+    </Realm> <!-- Thay bằng mật khẩu MySQL của bạn -->
     userTable="users"
     userNameCol="username"
     userCredCol="password"

@@ -24,35 +24,46 @@ public class RegisterServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Lấy dữ liệu từ form
+        String cccd = request.getParameter("cccd");
         String soDienThoai = request.getParameter("soDienThoai");
         String matKhau = request.getParameter("matKhau");
-        String vaiTro = "NGUOI_DUNG"; // Mặc định vai trò là người dùng
+        String vaiTro = "NGUOI_DUNG"; // Vai trò mặc định là người dùng
 
-        if (soDienThoai == null || matKhau == null || soDienThoai.trim().isEmpty() || matKhau.trim().isEmpty()) {
+        // Kiểm tra dữ liệu đầu vào
+        if (cccd == null || soDienThoai == null || matKhau == null ||
+                cccd.trim().isEmpty() || soDienThoai.trim().isEmpty() || matKhau.trim().isEmpty()) {
             request.setAttribute("errorMessage", "Vui lòng điền đầy đủ thông tin!");
             request.getRequestDispatcher("/register.jsp").forward(request, response);
             return;
         }
 
         try {
-            // Kiểm tra xem số điện thoại đã được sử dụng chưa
+            // Kiểm tra xem số điện thoại đã tồn tại chưa
             if (congDanDAO.isPhoneNumberExists(soDienThoai)) {
                 request.setAttribute("errorMessage", "Số điện thoại đã được sử dụng!");
                 request.getRequestDispatcher("/register.jsp").forward(request, response);
                 return;
             }
 
-            // Đăng ký tài khoản với số điện thoại và mật khẩu
-            boolean registered = congDanDAO.registerAccount(soDienThoai, null, matKhau, vaiTro);
+            // Kiểm tra xem CCCD có tồn tại trong bảng DCD_CongDan không
+            if (!congDanDAO.isCccdExists(cccd)) {
+                request.setAttribute("errorMessage", "Số CCCD không tồn tại trong hệ thống!");
+                request.getRequestDispatcher("/register.jsp").forward(request, response);
+                return;
+            }
+
+            // Đăng ký tài khoản với CCCD, số điện thoại và mật khẩu
+            boolean registered = congDanDAO.registerAccount(soDienThoai, cccd, matKhau, vaiTro);
             if (registered) {
                 request.setAttribute("successMessage", "Đăng ký thành công! Vui lòng đăng nhập.");
                 request.getRequestDispatcher("/login.jsp").forward(request, response);
             } else {
-                request.setAttribute("errorMessage", "Đăng ký thất bại!");
+                request.setAttribute("errorMessage", "Đăng ký thất bại! Vui lòng thử lại.");
                 request.getRequestDispatcher("/register.jsp").forward(request, response);
             }
         } catch (SQLException e) {
-            request.setAttribute("errorMessage", "Lỗi: " + e.getMessage());
+            request.setAttribute("errorMessage", "Lỗi hệ thống: " + e.getMessage());
             request.getRequestDispatcher("/register.jsp").forward(request, response);
         }
     }

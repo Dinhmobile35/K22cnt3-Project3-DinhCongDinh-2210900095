@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Đăng ký Admin</title>
+    <title>Đăng ký</title>
     <style>
         * {
             margin: 0;
@@ -17,7 +17,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(135deg, #6e8efb, #a777e3); /* Gradient background */
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
             color: #333;
         }
 
@@ -99,7 +99,6 @@
             text-decoration: underline;
         }
 
-        /* Responsive design */
         @media (max-width: 480px) {
             .register-container {
                 padding: 20px;
@@ -111,14 +110,15 @@
 <body>
 <div class="register-container">
     <h2>Đăng ký</h2>
-    <form method="POST" action="adminRegister"> <!-- Đảm bảo action khớp với controller -->
+    <form method="POST" action="register">
+        <input type="text" name="cccd" placeholder="Số CCCD" required><br>
         <input type="text" name="soDienThoai" placeholder="Số điện thoại" required><br>
         <input type="password" name="matKhau" placeholder="Mật khẩu" required><br>
         <button type="submit">Đăng ký</button>
     </form>
     <p class="error">${errorMessage}</p>
     <p class="success">${successMessage}</p>
-    <p>Đã có tài khoản? <a href="adminLogin">Đăng nhập</a></p> <!-- Điều chỉnh đường dẫn nếu cần -->
+    <p>Đã có tài khoản? <a href="login">Đăng nhập</a></p>
 </div>
 </body>
 </html>

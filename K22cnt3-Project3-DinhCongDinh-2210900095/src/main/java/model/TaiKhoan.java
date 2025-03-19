@@ -3,13 +3,18 @@ package model;
 import java.sql.Timestamp;
 
 public class TaiKhoan {
-    private String soDienThoai;
-    private String cccd;
-    private String matKhau;
-    private String vaiTro;
-    private String trangThai;
-    private Timestamp ngayTao;
+    private String soDienThoai; // DCD_SoDienThoai
+    private String cccd;        // DCD_CCCD
+    private String matKhau;     // DCD_MatKhau
+    private String vaiTro;      // DCD_VaiTro (ENUM: QUAN_TRI, NGUOI_DUNG)
+    private String trangThai;   // DCD_TrangThai (ENUM: HOAT_DONG, KHOA)
+    private Timestamp ngayTao;  // DCD_NgayTao
 
+    // Constructor mặc định
+    public TaiKhoan() {
+    }
+
+    // Constructor đầy đủ tham số
     public TaiKhoan(String soDienThoai, String cccd, String matKhau, String vaiTro, String trangThai, Timestamp ngayTao) {
         this.soDienThoai = soDienThoai;
         this.cccd = cccd;
@@ -19,49 +24,50 @@ public class TaiKhoan {
         this.ngayTao = ngayTao;
     }
 
-    // Getters và Setters
+    // Getters
     public String getSoDienThoai() {
         return soDienThoai;
-    }
-
-    public void setSoDienThoai(String soDienThoai) {
-        this.soDienThoai = soDienThoai;
     }
 
     public String getCccd() {
         return cccd;
     }
 
-    public void setCccd(String cccd) {
-        this.cccd = cccd;
-    }
-
     public String getMatKhau() {
         return matKhau;
-    }
-
-    public void setMatKhau(String matKhau) {
-        this.matKhau = matKhau;
     }
 
     public String getVaiTro() {
         return vaiTro;
     }
 
-    public void setVaiTro(String vaiTro) {
-        this.vaiTro = vaiTro;
-    }
-
     public String getTrangThai() {
         return trangThai;
     }
 
-    public void setTrangThai(String trangThai) {
-        this.trangThai = trangThai;
-    }
-
     public Timestamp getNgayTao() {
         return ngayTao;
+    }
+
+    // Setters
+    public void setSoDienThoai(String soDienThoai) {
+        this.soDienThoai = soDienThoai;
+    }
+
+    public void setCccd(String cccd) {
+        this.cccd = cccd;
+    }
+
+    public void setMatKhau(String matKhau) {
+        this.matKhau = matKhau;
+    }
+
+    public void setVaiTro(String vaiTro) {
+        this.vaiTro = vaiTro;
+    }
+
+    public void setTrangThai(String trangThai) {
+        this.trangThai = trangThai;
     }
 
     public void setNgayTao(Timestamp ngayTao) {

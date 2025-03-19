@@ -3,35 +3,23 @@ package model;
 import java.sql.Timestamp;
 
 public class YeuCauCapLai {
-    private int maYeuCau;
-    private String cccd;
-    private String loaiYeuCau;
-    private String trangThai;
-    private String trangThaiGiaoHang;
-    private String tenNguoiNhan;
-    private String soDienThoaiNhan;
-    private String diaChiNhan;
-    private Timestamp ngayTao;
-    private Timestamp ngayCapNhat;
+    private int maYeuCau;           // DCD_MaYeuCau
+    private String cccd;            // DCD_CCCD
+    private String loaiYeuCau;      // DCD_LoaiYeuCau (ENUM: MOI, CAP_LAI, MAT)
+    private String trangThai;       // DCD_TrangThai (ENUM: CHO_DUYET, DA_DUYET, TU_CHOI)
+    private String trangThaiGiaoHang; // DCD_TrangThaiGiaoHang (ENUM: CHUA_GIAO, DANG_GIAO, DA_NHAN)
+    private String tenNguoiNhan;    // DCD_TenNguoiNhan
+    private String soDienThoaiNhan; // DCD_SoDienThoaiNhan
+    private String diaChiNhan;      // DCD_DiaChiNhan
+    private Timestamp ngayTao;      // DCD_NgayTao
+    private Timestamp ngayCapNhat;  // DCD_NgayCapNhat
 
-    // Thêm constructor mặc định
+    // Constructor mặc định
     public YeuCauCapLai() {
-        // Giá trị mặc định (có thể để null hoặc gán giá trị mặc định nếu cần)
-        this.maYeuCau = 0;
-        this.cccd = null;
-        this.loaiYeuCau = null;
-        this.trangThai = null;
-        this.trangThaiGiaoHang = null;
-        this.tenNguoiNhan = null;
-        this.soDienThoaiNhan = null;
-        this.diaChiNhan = null;
-        this.ngayTao = null;
-        this.ngayCapNhat = null;
     }
 
-    // Constructor với 10 tham số
-    public YeuCauCapLai(int maYeuCau, String cccd, String loaiYeuCau, String trangThai, String trangThaiGiaoHang,
-                        String tenNguoiNhan, String soDienThoaiNhan, String diaChiNhan, Timestamp ngayTao, Timestamp ngayCapNhat) {
+    // Constructor đầy đủ tham số
+    public YeuCauCapLai(int maYeuCau, String cccd, String loaiYeuCau, String trangThai, String trangThaiGiaoHang, String tenNguoiNhan, String soDienThoaiNhan, String diaChiNhan, Timestamp ngayTao, Timestamp ngayCapNhat) {
         this.maYeuCau = maYeuCau;
         this.cccd = cccd;
         this.loaiYeuCau = loaiYeuCau;
@@ -44,34 +32,85 @@ public class YeuCauCapLai {
         this.ngayCapNhat = ngayCapNhat;
     }
 
-    // Getter và Setter
-    public int getMaYeuCau() { return maYeuCau; }
-    public void setMaYeuCau(int maYeuCau) { this.maYeuCau = maYeuCau; }
+    // Getters
+    public int getMaYeuCau() {
+        return maYeuCau;
+    }
 
-    public String getCccd() { return cccd; }
-    public void setCccd(String cccd) { this.cccd = cccd; }
+    public String getCccd() {
+        return cccd;
+    }
 
-    public String getLoaiYeuCau() { return loaiYeuCau; }
-    public void setLoaiYeuCau(String loaiYeuCau) { this.loaiYeuCau = loaiYeuCau; }
+    public String getLoaiYeuCau() {
+        return loaiYeuCau;
+    }
 
-    public String getTrangThai() { return trangThai; }
-    public void setTrangThai(String trangThai) { this.trangThai = trangThai; }
+    public String getTrangThai() {
+        return trangThai;
+    }
 
-    public String getTrangThaiGiaoHang() { return trangThaiGiaoHang; }
-    public void setTrangThaiGiaoHang(String trangThaiGiaoHang) { this.trangThaiGiaoHang = trangThaiGiaoHang; }
+    public String getTrangThaiGiaoHang() {
+        return trangThaiGiaoHang;
+    }
 
-    public String getTenNguoiNhan() { return tenNguoiNhan; }
-    public void setTenNguoiNhan(String tenNguoiNhan) { this.tenNguoiNhan = tenNguoiNhan; }
+    public String getTenNguoiNhan() {
+        return tenNguoiNhan;
+    }
 
-    public String getSoDienThoaiNhan() { return soDienThoaiNhan; }
-    public void setSoDienThoaiNhan(String soDienThoaiNhan) { this.soDienThoaiNhan = soDienThoaiNhan; }
+    public String getSoDienThoaiNhan() {
+        return soDienThoaiNhan;
+    }
 
-    public String getDiaChiNhan() { return diaChiNhan; }
-    public void setDiaChiNhan(String diaChiNhan) { this.diaChiNhan = diaChiNhan; }
+    public String getDiaChiNhan() {
+        return diaChiNhan;
+    }
 
-    public Timestamp getNgayTao() { return ngayTao; }
-    public void setNgayTao(Timestamp ngayTao) { this.ngayTao = ngayTao; }
+    public Timestamp getNgayTao() {
+        return ngayTao;
+    }
 
-    public Timestamp getNgayCapNhat() { return ngayCapNhat; }
-    public void setNgayCapNhat(Timestamp ngayCapNhat) { this.ngayCapNhat = ngayCapNhat; }
+    public Timestamp getNgayCapNhat() {
+        return ngayCapNhat;
+    }
+
+    // Setters
+    public void setMaYeuCau(int maYeuCau) {
+        this.maYeuCau = maYeuCau;
+    }
+
+    public void setCccd(String cccd) {
+        this.cccd = cccd;
+    }
+
+    public void setLoaiYeuCau(String loaiYeuCau) {
+        this.loaiYeuCau = loaiYeuCau;
+    }
+
+    public void setTrangThai(String trangThai) {
+        this.trangThai = trangThai;
+    }
+
+    public void setTrangThaiGiaoHang(String trangThaiGiaoHang) {
+        this.trangThaiGiaoHang = trangThaiGiaoHang;
+    }
+
+    public void setTenNguoiNhan(String tenNguoiNhan) {
+        this.tenNguoiNhan = tenNguoiNhan;
+    }
+
+    public void setSoDienThoaiNhan(String soDienThoaiNhan) {
+        this.soDienThoaiNhan = soDienThoaiNhan;
+    }
+
+    public void setDiaChiNhan(String diaChiNhan) {
+        this.diaChiNhan = diaChiNhan;
+    }
+
+    public void setNgayTao(Timestamp ngayTao) {
+        this.ngayTao = ngayTao;
+    }
+
+    public void setNgayCapNhat(Timestamp ngayCapNhat) {
+        this.ngayCapNhat = ngayCapNhat;
+    }
 }
